@@ -54,13 +54,6 @@ function addon:Initialize()
             }
         }
     end
-
-    -- Test CombatSafe on PLAYER_ENTERING_WORLD
-    self:RegisterEvent("PLAYER_ENTERING_WORLD", function(self, event)
-        self:CombatSafe(function()
-            print("CombatSafe test executed! InCombatLockdown=" .. tostring(InCombatLockdown()))
-        end)
-    end)
 end
 
 function addon:OnZoneChange(currentZone)

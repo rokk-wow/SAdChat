@@ -7,7 +7,7 @@ addon.savedVarsPerCharName = "SAdChat_Settings_Char"
 addon.compartmentFuncName = "SAdChat_Compartment_Func"
 addon.activeChatFilters = {}
 
-function addon:LoadConfig()
+function addon:Initialize()
     self.config.version = "1.0"
     self.author = "Rôkk-Wyrmrest Accord"
 
@@ -54,6 +54,13 @@ function addon:LoadConfig()
             }
         }
     end
+
+    -- Test CombatSafe on PLAYER_ENTERING_WORLD
+    self:RegisterEvent("PLAYER_ENTERING_WORLD", function(self, event)
+        self:CombatSafe(function()
+            print("CombatSafe test executed! InCombatLockdown=" .. tostring(InCombatLockdown()))
+        end)
+    end)
 end
 
 function addon:OnZoneChange(currentZone)
@@ -63,11 +70,11 @@ end
 function addon:ApplyChatFiltersForZone(currentZone)
     local zoneSettings = self.settings[self.currentZone]
     if not zoneSettings then
-        addon:debug(string.format("No settings found for zone: %s", tostring(self.currentZone)))
+        addon:Debug(string.format("No settings found for zone: %s", tostring(self.currentZone)))
         return
     end
 
-    addon:debug(string.format("Applying chat filters for zone: %s", tostring(self.currentZone)))
+    addon:Debug(string.format("Applying chat filters for zone: %s", tostring(self.currentZone)))
 
     self:allowBnetWhispers(zoneSettings.allowBnetWhispers)
     self:allowWhispers(zoneSettings.allowWhispers)
@@ -98,14 +105,14 @@ end
 function addon:allowBnetWhispers(allow)
     local allowChat = allow == true
     addon:SetChatMessageFilter("CHAT_MSG_BN_WHISPER", allowChat)
-    addon:debug("Set allowBnetWhispers to: " .. tostring(allowChat))
+    addon:Debug("Set allowBnetWhispers to: " .. tostring(allowChat))
 end
 
 function addon:allowWhispers(allow)
     local allowChat = allow == true
     addon:SetChatMessageFilter("CHAT_MSG_WHISPER", allowChat)
     addon:SetChatMessageFilter("CHAT_MSG_WHISPER_INFORM", allowChat)
-    addon:debug("Set allowWhispers to: " .. tostring(allowChat))
+    addon:Debug("Set allowWhispers to: " .. tostring(allowChat))
 end
 
 function addon:allowSay(allow)
@@ -113,7 +120,7 @@ function addon:allowSay(allow)
     addon:SetChatMessageFilter("CHAT_MSG_SAY", allowChat)
     addon:SetChatMessageFilter("CHAT_MSG_YELL", allowChat)
     addon:SetChatMessageFilter("CHAT_MSG_EMOTE", allowChat)
-    addon:debug("Set allowSay to: " .. tostring(allowChat))
+    addon:Debug("Set allowSay to: " .. tostring(allowChat))
 end
 
 function addon:allowPartyChat(allow)
@@ -122,7 +129,7 @@ function addon:allowPartyChat(allow)
     addon:SetChatMessageFilter("CHAT_MSG_PARTY_LEADER", allowChat)
     addon:SetChatMessageFilter("CHAT_MSG_INSTANCE_CHAT", allowChat)
     addon:SetChatMessageFilter("CHAT_MSG_INSTANCE_CHAT_LEADER", allowChat)
-    addon:debug("Set allowPartyChat to: " .. tostring(allowChat))
+    addon:Debug("Set allowPartyChat to: " .. tostring(allowChat))
 end
 
 function addon:allowRaidChat(allow)
@@ -132,12 +139,12 @@ function addon:allowRaidChat(allow)
     addon:SetChatMessageFilter("CHAT_MSG_RAID_WARNING", allowChat)
     addon:SetChatMessageFilter("CHAT_MSG_INSTANCE_CHAT", allowChat)
     addon:SetChatMessageFilter("CHAT_MSG_INSTANCE_CHAT_LEADER", allowChat)    
-    addon:debug("Set allowRaidChat to: " .. tostring(allowChat))
+    addon:Debug("Set allowRaidChat to: " .. tostring(allowChat))
 end
 
 function addon:allowGuildChat(allow)
     local allowChat = allow == true
     addon:SetChatMessageFilter("CHAT_MSG_GUILD", allowChat)
     addon:SetChatMessageFilter("CHAT_MSG_OFFICER", allowChat)
-    addon:debug("Set allowGuildChat to: " .. tostring(allowChat))
+    addon:Debug("Set allowGuildChat to: " .. tostring(allowChat))
 end

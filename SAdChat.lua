@@ -61,7 +61,7 @@ function addon:OnZoneChange(currentZone)
 end
 
 function addon:ApplyChatFiltersForZone(currentZone)
-    local zoneSettings = self.settings[self.currentZone]
+    local zoneSettings = self.savedVars[self.currentZone]
     if not zoneSettings then
         addon:Debug(string.format("No settings found for zone: %s", tostring(self.currentZone)))
         return

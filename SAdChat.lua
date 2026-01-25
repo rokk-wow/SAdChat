@@ -7,12 +7,20 @@ addon.sadCore.savedVarsPerCharName = "SAdChat_Settings_Char"
 addon.sadCore.compartmentFuncName = "SAdChat_Compartment_Func"
 addon.activeChatFilters = {}
 
+-- Create persistent filter function
+local function CreateChatFilter()
+    return function(self, event, message, sender, ...)
+        addon:Debug(string.format("Filtered %s message from %s: %s", event, tostring(sender), tostring(message)))
+        return true
+    end
+end
+
 function addon:Initialize()
     self.sadCore.version = "1.0"
     self.author = "Rôkk-Wyrmrest Accord"
 
     for _, zoneName in ipairs(addon.zones) do
-        self.sadCore.panels[zoneName] = {
+        self:AddSettingsPanel(zoneName, {
             title = zoneName .. "Title",
             controls = {
                 {
@@ -52,7 +60,7 @@ function addon:Initialize()
                     onValueChange = self.ApplyChatFiltersForZone
                 },
             }
-        }
+        })
     end
 end
 
@@ -82,15 +90,14 @@ function addon:SetChatMessageFilter(chatEvent, allowChat)
         if addon.activeChatFilters[chatEvent] then
             ChatFrame_RemoveMessageEventFilter(chatEvent, addon.activeChatFilters[chatEvent])
             addon.activeChatFilters[chatEvent] = nil
+            addon:Debug(string.format("Removed filter for %s", chatEvent))
         end
     else
         if not addon.activeChatFilters[chatEvent] then
-            local filterFunc = function(self, event, ...)
-                return true
-            end
-            
+            local filterFunc = CreateChatFilter()
             ChatFrame_AddMessageEventFilter(chatEvent, filterFunc)
             addon.activeChatFilters[chatEvent] = filterFunc
+            addon:Debug(string.format("Added filter for %s", chatEvent))
         end
     end
 end
@@ -113,6 +120,7 @@ function addon:allowSay(allow)
     addon:SetChatMessageFilter("CHAT_MSG_SAY", allowChat)
     addon:SetChatMessageFilter("CHAT_MSG_YELL", allowChat)
     addon:SetChatMessageFilter("CHAT_MSG_EMOTE", allowChat)
+    addon:SetChatMessageFilter("CHAT_MSG_TEXT_EMOTE", allowChat)
     addon:Debug("Set allowSay to: " .. tostring(allowChat))
 end
 

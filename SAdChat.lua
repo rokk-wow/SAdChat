@@ -7,10 +7,9 @@ addon.sadCore.savedVarsPerCharName = "SAdChat_Settings_Char"
 addon.sadCore.compartmentFuncName = "SAdChat_Compartment_Func"
 addon.activeChatFilters = {}
 
--- Create persistent filter function
-local function CreateChatFilter()
+function addon:CreateChatFilter(chatEvent)
     return function(self, event, message, sender, ...)
-        addon:Debug(string.format("Filtered %s message from %s: %s", event, tostring(sender), tostring(message)))
+        addon:Debug(string.format("[%s] %s (%s) FILTERED: %s", tostring(chatEvent), event, tostring(sender), tostring(message)))
         return true
     end
 end
@@ -94,7 +93,7 @@ function addon:SetChatMessageFilter(chatEvent, allowChat)
         end
     else
         if not addon.activeChatFilters[chatEvent] then
-            local filterFunc = CreateChatFilter()
+            local filterFunc = self:CreateChatFilter(chatEvent)
             ChatFrame_AddMessageEventFilter(chatEvent, filterFunc)
             addon.activeChatFilters[chatEvent] = filterFunc
             addon:Debug(string.format("Added filter for %s", chatEvent))

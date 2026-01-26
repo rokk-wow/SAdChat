@@ -15,7 +15,6 @@ function addon:CreateChatFilter(chatEvent)
 end
 
 function addon:Initialize()
-    self.sadCore.version = "1.0"
     self.author = "Rôkk-Wyrmrest Accord"
 
     for _, zoneName in ipairs(addon.zones) do

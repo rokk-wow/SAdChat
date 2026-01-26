@@ -9,7 +9,7 @@ addon.activeChatFilters = {}
 
 function addon:CreateChatFilter(chatEvent)
     return function(self, event, message, sender, ...)
-        addon:Debug(string.format("[%s] %s (%s) FILTERED: %s", tostring(chatEvent), event, tostring(sender), tostring(message)))
+        addon:Debug(string.format("Filtered %s from %s", chatEvent, sender))
         return true
     end
 end

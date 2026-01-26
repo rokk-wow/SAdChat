@@ -68,20 +68,14 @@ function addon:OnZoneChange(currentZone)
 end
 
 function addon:ApplyChatFiltersForZone(currentZone)
-    local zoneSettings = self.savedVars[self.currentZone]
-    if not zoneSettings then
-        addon:Debug(string.format("No settings found for zone: %s", tostring(self.currentZone)))
-        return
-    end
-
     addon:Debug(string.format("Applying chat filters for zone: %s", tostring(self.currentZone)))
 
-    self:allowBnetWhispers(zoneSettings.allowBnetWhispers)
-    self:allowWhispers(zoneSettings.allowWhispers)
-    self:allowSay(zoneSettings.allowSay)
-    self:allowPartyChat(zoneSettings.allowPartyChat)
-    self:allowRaidChat(zoneSettings.allowRaidChat)
-    self:allowGuildChat(zoneSettings.allowGuildChat)
+    self:allowBnetWhispers(self:GetValue(self.currentZone, "allowBnetWhispers"))
+    self:allowWhispers(self:GetValue(self.currentZone, "allowWhispers"))
+    self:allowSay(self:GetValue(self.currentZone, "allowSay"))
+    self:allowPartyChat(self:GetValue(self.currentZone, "allowPartyChat"))
+    self:allowRaidChat(self:GetValue(self.currentZone, "allowRaidChat"))
+    self:allowGuildChat(self:GetValue(self.currentZone, "allowGuildChat"))
 end
 
 function addon:SetChatMessageFilter(chatEvent, allowChat)

@@ -15,12 +15,15 @@ addon.locale.enEN = {
     allowWhispersTooltip = "Enable whisper messages in this zone",
     allowSay = "Allow Say/Yell",
     allowSayTooltip = "Enable /say and /yell custom emote messages in this zone",
+    allowChatBubbles = "Allow Chat Bubbles",
+    allowChatBubblesTooltip = "Enable chat bubbles in this zone",
     allowPartyChat = "Allow Party Chat",
     allowPartyChatTooltip = "Enable party chat messages in this zone",
     allowRaidChat = "Allow Raid Chat",
     allowRaidChatTooltip = "Enable raid chat messages in this zone",
     allowGuildChat = "Allow Guild Chat",
-    allowGuildChatTooltip = "Enable guild chat messages in this zone"
+    allowGuildChatTooltip = "Enable guild chat messages in this zone",
+    v1_3_chat_bubbles = "Added the ability to show/hide chat bubbles by zone."
 }
 
 -- Spanish
@@ -36,12 +39,15 @@ addon.locale.esES = {
     allowWhispersTooltip = "Habilitar mensajes de susurro en esta zona",
     allowSay = "Permitir Decir/Gritar",
     allowSayTooltip = "Habilitar mensajes de emotes personalizados /decir y /gritar en esta zona",
+    allowChatBubbles = "Permitir Burbujas de Chat",
+    allowChatBubblesTooltip = "Habilitar burbujas de chat en esta zona",
     allowPartyChat = "Permitir Chat de Grupo",
     allowPartyChatTooltip = "Habilitar mensajes de chat de grupo en esta zona",
     allowRaidChat = "Permitir Chat de Banda",
     allowRaidChatTooltip = "Habilitar mensajes de chat de banda en esta zona",
     allowGuildChat = "Permitir Chat de Hermandad",
-    allowGuildChatTooltip = "Habilitar mensajes de chat de hermandad en esta zona"
+    allowGuildChatTooltip = "Habilitar mensajes de chat de hermandad en esta zona",
+    v1_3_chat_bubbles = "Se agregó la capacidad de mostrar/ocultar burbujas de chat por zona."
 }
 
 addon.locale.esMX = addon.locale.esES
@@ -59,12 +65,15 @@ addon.locale.ptBR = {
     allowWhispersTooltip = "Habilitar mensagens de sussurro nesta zona",
     allowSay = "Permitir Dizer/Gritar",
     allowSayTooltip = "Habilitar mensagens de emotes personalizadas /dizer e /gritar nesta zona",
+    allowChatBubbles = "Permitir Balões de Chat",
+    allowChatBubblesTooltip = "Habilitar balões de chat nesta zona",
     allowPartyChat = "Permitir Chat do Grupo",
     allowPartyChatTooltip = "Habilitar mensagens de chat do grupo nesta zona",
     allowRaidChat = "Permitir Chat da Raide",
     allowRaidChatTooltip = "Habilitar mensagens de chat da raide nesta zona",
     allowGuildChat = "Permitir Chat da Guilda",
-    allowGuildChatTooltip = "Habilitar mensagens de chat da guilda nesta zona"
+    allowGuildChatTooltip = "Habilitar mensagens de chat da guilda nesta zona",
+    v1_3_chat_bubbles = "Adicionada a capacidade de mostrar/ocultar balões de chat por zona."
 }
 
 -- French
@@ -80,12 +89,15 @@ addon.locale.frFR = {
     allowWhispersTooltip = "Activer les messages de chuchotement dans cette zone",
     allowSay = "Autoriser Dire/Crier",
     allowSayTooltip = "Activer les messages d'émotes personnalisées /dire et /crier dans cette zone",
+    allowChatBubbles = "Autoriser les Bulles de Chat",
+    allowChatBubblesTooltip = "Activer les bulles de chat dans cette zone",
     allowPartyChat = "Autoriser le Chat de Groupe",
     allowPartyChatTooltip = "Activer les messages du chat de groupe dans cette zone",
     allowRaidChat = "Autoriser le Chat de Raid",
     allowRaidChatTooltip = "Activer les messages du chat de raid dans cette zone",
     allowGuildChat = "Autoriser le Chat de Guilde",
-    allowGuildChatTooltip = "Activer les messages du chat de guilde dans cette zone"
+    allowGuildChatTooltip = "Activer les messages du chat de guilde dans cette zone",
+    v1_3_chat_bubbles = "Ajout de la possibilité d'afficher/masquer les bulles de chat par zone."
 }
 
 -- German
@@ -101,12 +113,15 @@ addon.locale.deDE = {
     allowWhispersTooltip = "Flüsternachrichten in dieser Zone aktivieren",
     allowSay = "Sagen/Schreien erlauben",
     allowSayTooltip = "Benutzerdefinierte Emote-Nachrichten /sagen und /schreien in dieser Zone aktivieren",
+    allowChatBubbles = "Chat-Blasen erlauben",
+    allowChatBubblesTooltip = "Chat-Blasen in dieser Zone aktivieren",
     allowPartyChat = "Gruppenchat erlauben",
     allowPartyChatTooltip = "Gruppenchat-Nachrichten in dieser Zone aktivieren",
     allowRaidChat = "Schlachtzugchat erlauben",
     allowRaidChatTooltip = "Schlachtzugchat-Nachrichten in dieser Zone aktivieren",
     allowGuildChat = "Gildenchat erlauben",
-    allowGuildChatTooltip = "Gildenchat-Nachrichten in dieser Zone aktivieren"
+    allowGuildChatTooltip = "Gildenchat-Nachrichten in dieser Zone aktivieren",
+    v1_3_chat_bubbles = "Die Möglichkeit hinzugefügt, Chat-Blasen nach Zone anzuzeigen/auszublenden."
 }
 
 -- Russian
@@ -122,10 +137,13 @@ addon.locale.ruRU = {
     allowWhispersTooltip = "Включить сообщения шепота в этой зоне",
     allowSay = "Разрешить Сказать/Крикнуть",
     allowSayTooltip = "Включить пользовательские сообщения эмоций /сказать и /крикнуть в этой зоне",
+    allowChatBubbles = "Разрешить Пузыри Чата",
+    allowChatBubblesTooltip = "Включить пузыри чата в этой зоне",
     allowPartyChat = "Разрешить Чат Группы",
     allowPartyChatTooltip = "Включить сообщения чата группы в этой зоне",
     allowRaidChat = "Разрешить Чат Рейда",
     allowRaidChatTooltip = "Включить сообщения чата рейда в этой зоне",
     allowGuildChat = "Разрешить Чат Гильдии",
-    allowGuildChatTooltip = "Включить сообщения чата гильдии в этой зоне"
+    allowGuildChatTooltip = "Включить сообщения чата гильдии в этой зоне",
+    v1_3_chat_bubbles = "Добавлена возможность показывать/скрывать пузыри чата по зонам."
 }
